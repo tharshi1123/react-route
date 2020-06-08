@@ -1,7 +1,7 @@
 .right{
 display:flex;
 justify-content: space-between;
-margin-left: 850px;
+margin-left: 800px;
 float: right;
 }
 .left{
@@ -9,4 +9,9 @@ float: right;
   justify-content: space-between;
   margin-left: -50px;
   float:left;
+}
+.home{
+display: flex;
+margin-left:20px;
+margin-top: 10px;
 }

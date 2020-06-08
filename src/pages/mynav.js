@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import theme from '../theme/theme';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import "../pages/mynav.css"
-import Icon from '@material-ui/core/Icon';
+import Home from '@material-ui/icons/Home';
 
 
 
@@ -15,12 +15,12 @@ class Navbar extends Component {
         return (
             <ThemeProvider theme={theme} >
             <Router>
-                <AppBar position="static" className="nav">
+                <AppBar className="nav">
                     <Toolbar>
                         <IconButton edge="start" color="inherit" aria-label="menu">
                         </IconButton>
                       <div style={{}} className="left">
-
+                      <Home className="home"/>
                         <Link to="/home" style={{ textDecoration: 'none' }} >  <ul>HOME</ul></Link>
                         <Link to="/contact" style={{ textDecoration: 'none' }}>  <ul >CONTACT </ul></Link>
                         </div>
