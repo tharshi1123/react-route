@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './pages/mynav';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "./theme/theme";
+import App from "./pages/App";
 
 
 
 ReactDOM.render(
 <ThemeProvider theme={theme}>
-    <Navbar />
+<App/>
 </ThemeProvider>,
   document.getElementById('root')
 );
