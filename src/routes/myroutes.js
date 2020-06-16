@@ -1,7 +1,9 @@
 import welcome from "../pages/welcome";
 import login from "../pages/login";
 import signup from "../pages/signup";
-import about from "../pages/about";
+import complete from "../pages/complete";
+import uncomplete from "../pages/uncomplete";
+
 
 const publicRoutes = [
   {
@@ -20,8 +22,13 @@ const publicRoutes = [
   exact:true
 },
 {
-  path:"/about",
-  component:about,
+  path:"/complete",
+  component:complete,
+  exact:true
+},
+{
+  path:"/uncomplete",
+  component:uncomplete,
   exact:true
 },
 ];
