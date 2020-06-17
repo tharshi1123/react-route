@@ -1,18 +1,42 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
+import React from 'react';
+import { Grid } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(( theme=theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    main: {
+      padding: theme.spacing(19),
+      textAlign: 'center',
+      color: theme.palette.secoundry,
+      alignItems:'center'
+    },
+    paragraph:{
+      font: 'Regular 15px/19px PT Sans',
+      letterSpacing:' 0px',
+      color:' #181D33',
+      opacity: '0.48'
+    }
+  }),
+);
 
-
-
-function publicLayout(props) {
+function PublicLayout(props) {
+    const classes = useStyles(props);
 
     return (
-        <Grid item xs={12} >
-        <Grid item xs={6}>public layout-(props.children)</Grid>
-        <Grid item xs={6}>public layout-(props.children)</Grid>
+        <Grid xs={12} container  >
+            <Grid item xs={6} className={classes.main} >
+              <img src={props.logo} alt="noda" />
+              <h1> {props.header} </h1>
+              <p className={classes.paragraph} >{props.paragraph} </p>
+            </Grid>
+            <Grid item xs={6} style={{border:' 0.25px solid #EDEDED'}} justify='center'>
+              {props.children}
+            </Grid>
         </Grid>
-    );
-  }
-  
-  export default publicLayout;
-  
+           )
+}
+
+export default PublicLayout;
