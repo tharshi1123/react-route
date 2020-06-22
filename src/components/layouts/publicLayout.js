@@ -3,7 +3,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-​
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgba(253, 253, 253, 1)",
   },
   paper: {
-​
+
     [theme.breakpoints.up("sm")]: {
       width: "60%",
     },
@@ -39,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '25px'
   }
 }));
-​
+
 function PublicLayout(props) {
   const classes = useStyles(props);
-​
+
   return (
     <Grid item xs={12} classes={{
       root: classes.root
@@ -66,6 +67,6 @@ function PublicLayout(props) {
     </Grid>
   );
 }
-​
+
 export default PublicLayout;
 

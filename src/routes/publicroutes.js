@@ -1,12 +1,14 @@
-import Welcome from '../pages/Welcome';
+import Signup from '../pages/Signup';
 import Login from '../pages/Login';
+import Complete from '../pages/Complete';
+import Uncomplete from '../pages/Uncomplete';
 
 
 
 const publicRoutes = [
     {
-        path:"/welcome",
-        component:Welcome,
+        path:"/signup",
+        component:Signup,
         exact:true
     },
     {
@@ -15,6 +17,16 @@ const publicRoutes = [
         exact:true
     },
 
+    {
+        path:"/complete",
+        component:Complete,
+        exact:true
+    },
+    {
+        path:"/uncomplete",
+        component:Uncomplete,
+        exact:true
+    },
 
 
 ]

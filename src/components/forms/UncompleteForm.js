@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme) =>
       color: '#4E598348',
       paddingBottom: '16px',
     },
+    heading:{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+
+    },
     apiError: {
       display: 'flex',
       alignItems: 'center',
@@ -29,36 +35,23 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-const LoginForm = (props) => {
+const UncompleteForm = (props) => {
   const classes = useStyles();
 
   return (
     <form className={classes.formCart}>
+     
       <Grid container item xs={12} sm={12} md={12} lg={12}>
-        <TextField
-          type={'email'}
-          label={'Email address'}
-          fullWidth
-        />
-      </Grid>
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
-        <TextField
-          type={'password'}
-          label={'Password'}
-          placeholder={'Enter password'}
-          fullWidth
-        />
-      </Grid>
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <h3  className={classes.heading}>Your account creation is failed!</h3>        
         <Box className={classes.forgotText}>
-          Forgot password? <Link to={'/forgot-password'}>RESET</Link>
+        Please check your information and try again.
         </Box>
       </Grid>
       <Button fullWidth type={'submit'} variant="contained" color="primary">
-        Sign In
+      GO BACK
       </Button>
     </form>
   );
 };
 
-export default LoginForm;
+export default UncompleteForm;
