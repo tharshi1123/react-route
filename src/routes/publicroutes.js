@@ -3,6 +3,7 @@ import Login from '../pages/Login';
 import Complete from '../pages/Complete';
 import Uncomplete from '../pages/Uncomplete';
 
+import Forgetpass from '../pages/Forgetpass';
 
 
 const publicRoutes = [
@@ -25,6 +26,11 @@ const publicRoutes = [
     {
         path:"/uncomplete",
         component:Uncomplete,
+        exact:true
+    },
+    {
+        path:"/forgetpass",
+        component:Forgetpass,
         exact:true
     },
 
