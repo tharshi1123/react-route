@@ -1,24 +1,23 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
     forgotText: {
       fontSize: '14px',
       letterSpacing: '0',
       fontWeight: 400,
       color: '#4E598348',
       paddingBottom: '16px',
-    },
-    heading:{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-
     },
     apiError: {
       display: 'flex',
@@ -34,23 +33,32 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-const CompleteForm = (props) => {
+const ForgetpassForm = (props) => {
   const classes = useStyles();
 
   return (
     <form className={classes.formCart}>
-     
+          <h1>Forgot Password</h1>
+
       <Grid container item xs={12} sm={12} md={12} lg={12}>
-        <h3  className={classes.heading}>Your account completed!</h3>        
-        <Box className={classes.forgotText}>
-        You can now access your dashboard using your credentials.
-        </Box>
+      <TextField
+          required
+          id="outlined"
+          label="Email"
+          defaultValue="Enter your email"
+          variant="outlined"
+          fullWidth
+        />
+ 
       </Grid>
+      <br></br>
+
       <Button fullWidth type={'submit'} variant="contained" color="primary">
-      Go to dashboard
+      RESET PASSWORD
       </Button>
-    </form>
+      <br></br>
+      </form>
   );
 };
 
-export default CompleteForm;
+export default ForgetpassForm;

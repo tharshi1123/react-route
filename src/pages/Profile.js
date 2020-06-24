@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import PublicLayout from "../components/layouts/publicLayout";
-import signupImage from "../assets/images/Signup.png";
-import SignupForm from "../components/forms/SignupForm";
-import { withStyles } from "@material-ui/styles";
+import CompleteImage from "../assets/images/Complete.png";
+import  ProfileForm from "../components/forms/ProfileForm";
+
+import {withStyles} from "@material-ui/styles";
+
 
 const styles = (theme) => ({
   logo: {
@@ -20,7 +22,7 @@ const styles = (theme) => ({
   },
 });
 
-class Signup extends Component {
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -31,17 +33,16 @@ class Signup extends Component {
 
     return (
       <PublicLayout
-        image={signupImage}
-        title="Make decisions using multiple visualizations"
-        text="Our platform is capable of communicating data in various graphical forms for better understanding and rational decision making."
+        image={CompleteImage}
+        title="Integrous data collections"
+        text="Streaming highly reliable and accurate qualitative data from trusted sources for lucid analysis and effective decision making."
       >
         <div className={classes.cart}>
-
-          <SignupForm />
+         <ProfileForm/>
         </div>
       </PublicLayout>
     )
   }
 }
 
-export default withStyles(styles)(Signup);
+export default withStyles(styles)(Profile);

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PublicLayout from "../components/layouts/publicLayout";
-import signupImage from "../assets/images/Signup.png";
-import SignupForm from "../components/forms/SignupForm";
-import { withStyles } from "@material-ui/styles";
+import ForgetpassImage from "../assets/images/Forgotpassword.png";
+import ForgetpassForm from "../components/forms/ForgetpasswordForm";
+import {withStyles} from "@material-ui/styles";
 
 const styles = (theme) => ({
   logo: {
@@ -20,7 +20,7 @@ const styles = (theme) => ({
   },
 });
 
-class Signup extends Component {
+class Forgetpass extends Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -31,17 +31,17 @@ class Signup extends Component {
 
     return (
       <PublicLayout
-        image={signupImage}
-        title="Make decisions using multiple visualizations"
-        text="Our platform is capable of communicating data in various graphical forms for better understanding and rational decision making."
+        image={ForgetpassImage}
+        title="Instant Datasets at your fingertips"
+        text="Work faster and smarter with our readily updated datasets at your disposal. We deliver regulated data for better performance."
       >
         <div className={classes.cart}>
 
-          <SignupForm />
+          <ForgetpassForm/>
         </div>
       </PublicLayout>
     )
   }
 }
 
-export default withStyles(styles)(Signup);
+export default withStyles(styles)(Forgetpass);

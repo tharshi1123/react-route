@@ -1,11 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-
 import Button from "@material-ui/core/Button";
-import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -33,35 +29,27 @@ const useStyles = makeStyles((theme) =>
       maxWidth: '430px',
       width: '100%',
     },
+    gridSpace: {
+      padding: "10px",
+          }
   })
 );
 
-const ForgetpassForm = (props) => {
+const ConfirmForm = (props) => {
   const classes = useStyles();
 
   return (
     <form className={classes.formCart}>
-          <h1>Forgot Password</h1>
-
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
-      <TextField
-          required
-          id="outlined"
-          label="Email"
-          defaultValue="Enter your email"
-          variant="outlined"
-          fullWidth
-        />
- 
-      </Grid>
-      <br></br>
-
-      <Button fullWidth type={'submit'} variant="contained" color="primary">
-      RESET PASSWORD
-      </Button>
-      <br></br>
+        <h3>Confirmation email has been sent!</h3>
+         <Box className={classes.forgotText}>
+         You can now access your dashboard using your credentials.
+        </Box>
+     <Button fullWidth type={'submit'} variant="contained" color="primary">
+     BACK TO SIGN In page
+    </Button>
+      
       </form>
   );
 };
 
-export default ForgetpassForm;
+export default ConfirmForm;

@@ -1,23 +1,21 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
     forgotText: {
       fontSize: '14px',
       letterSpacing: '0',
       fontWeight: 400,
       color: '#4E598348',
       paddingBottom: '16px',
-    },
-    heading:{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-
     },
     apiError: {
       display: 'flex',
@@ -29,27 +27,32 @@ const useStyles = makeStyles((theme) =>
     formCart: {
       maxWidth: '430px',
       width: '100%',
+      height:'100%',
+
     },
+    heading:{
+        marginTop:'-50%',
+        marginBottom:'40%',
+    },
+    gridSpace: {
+      padding: "10px",
+          }
   })
 );
 
-const UncompleteForm = (props) => {
+const ProfileForm = (props) => {
   const classes = useStyles();
 
   return (
     <form className={classes.formCart}>
-     
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
-        <h3  className={classes.heading}>Your account creation is failed!</h3>        
-        <Box className={classes.forgotText}>
-        Please check your information and try again.
-        </Box>
-      </Grid>
-      <Button fullWidth type={'submit'} variant="contained" color="primary">
-      GO BACK
+          <h3 className={classes.heading}>Set profile picture</h3>
+          
+     <Button className={classes.gridSpace} fullWidth type={'submit'} variant="contained" color="primary">
+     BACK TO SIGN In page
       </Button>
-    </form>
+      
+      </form>
   );
 };
 
-export default UncompleteForm;
+export default ProfileForm;

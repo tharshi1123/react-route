@@ -2,8 +2,9 @@ import Signup from '../pages/Signup';
 import Login from '../pages/Login';
 import Complete from '../pages/Complete';
 import Uncomplete from '../pages/Uncomplete';
-
-import Forgetpass from '../pages/Forgetpass';
+import Confirm from '../pages/Confirm';
+import Profile from '../pages/Profile';
+import Forgetpass from '../pages/Forgetpassword';
 
 
 const publicRoutes = [
@@ -31,6 +32,16 @@ const publicRoutes = [
     {
         path:"/forgetpass",
         component:Forgetpass,
+        exact:true
+    },
+    {
+        path:"/confirm",
+        component:Confirm,
+        exact:true
+    },
+    {
+        path:"/profile",
+        component:Profile,
         exact:true
     },
 
