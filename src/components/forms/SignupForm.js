@@ -1,161 +1,160 @@
-import React from "react";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+import React from 'react';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import InputField from '../core/Input';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     forgotText: {
-      fontSize: "14px",
-      letterSpacing: "0",
+      fontSize: '14px',
+      letterSpacing: '0',
       fontWeight: 400,
-      color: "#4E598348",
-      paddingBottom: "16px",
+      color: '#4E598348',
+      paddingBottom: '16px',
     },
     apiError: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      color: "#ff1744",
-      fontSize: "14px",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#ff1744',
+      fontSize: '14px',
     },
     formCart: {
       maxWidth: '430px',
       width: '100%',
     },
-    Field: {
-      width: "100%",
-      height: "100%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    gridSpace: {
-padding: "10px",
-    }
   })
 );
 
-const SignupSchema = Yup.object().shape({
-  password: Yup.string()
-    .min(6, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-});
-
-const SignupForm= (props) => {
+const SignupForm = (props) => {
   const classes = useStyles();
 
+  const formik = useFormik({
+    initialValues: {
+      
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+      .email('Invalid email address')
+      .required('Required'),
+      password: Yup.string()
+        .min(6, 'minimum 6 characters')
+        .required('Required'),
+    }),
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  });
+
   return (
-    <Formik
-      initialValues={{
-        password: "",
-        email: "",
-      }}
-      validationSchema={SignupSchema}
-      onSubmit={(values) => {
-        console.log(values);
-      }}
-    >
-      {({ errors, touched,setFieldTouched }) => (
-        <Form className={classes.formCart}>
-          <h2>Create Your Account</h2>
-          <Grid className={classes.gridSpace}item xs={12} sm={12} md={12} lg={12}>
-            <TextField
-              fullWidth
-              id="outlined"
-          label="First Name"
-          defaultValue="Gobinthiran"
-          variant="outlined"
+    <form onSubmit={formik.handleSubmit} className={classes.formCart}>
+      <h3>Create Your Account</h3>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <InputField
+          id={'First Name'}
+          name={'First Name'}
+          type={'First Name'}
+          label={'First Name'}
+          placeholder={'Gobinthiran'}
+          error={Boolean(formik.errors.password) && formik.touched.password}
+          errorMessage={formik.errors.password}
+          value={formik.values.password}
           fullWidth
-              error={Boolean(errors.email) && touched.email}
-              onBlur={() => setFieldTouched('email')}
-              helperText={errors.email}
-            />
-          </Grid>
-          
-          <Grid className={classes.gridSpace} item xs={12} sm={12} md={12} lg={12}>
-            <TextField
-              id="outlined"
-              label="Last Name"
-              defaultValue="Kulendran"
-              variant="outlined"
-              fullWidth
-              error={Boolean(errors.password) && touched.password}
-              onBlur={() => setFieldTouched('password')}
-              helperText={errors.password}
-            />
-          </Grid>
-
-          <Grid className={classes.gridSpace} item xs={12} sm={12} md={12} lg={12}>
-            <TextField
-              id="outlined"
-              label="Organization"
-              defaultValue="Aatral Organization"
-              variant="outlined"
-              fullWidth
-              error={Boolean(errors.password) && touched.password}
-              onBlur={() => setFieldTouched('password')}
-              helperText={errors.password}
-            />
-          </Grid>
-
-          <Grid className={classes.gridSpace} item xs={12} sm={12} md={12} lg={12}>
-            <TextField
-              id="outlined"
-              label="Email"
-              defaultValue="gobinthiran@huex.studio"
-              variant="outlined"
-              fullWidth
-              error={Boolean(errors.password) && touched.password}
-              onBlur={() => setFieldTouched('password')}
-              helperText={errors.password}
-            />
-          </Grid>
-
-          <Grid className={classes.gridSpace} item xs={12} sm={12} md={12} lg={12}>
-            <TextField
-              id="outlined"
-              label="Phone number"
-              defaultValue="Enter your phone number"
-              variant="outlined"
-              fullWidth
-              error={Boolean(errors.password) && touched.password}
-              onBlur={() => setFieldTouched('password')}
-              helperText={errors.password}
-            />
-          </Grid>
-
-          <Grid className={classes.gridSpace} item xs={12} sm={12} md={12} lg={12}>
-            <TextField
-              id="outlined"
-              label="Password"
-              defaultValue="Enter a password"
-              variant="outlined"
-              fullWidth
-              error={Boolean(errors.password) && touched.password}
-              onBlur={() => setFieldTouched('password')}
-              helperText={errors.password}
-            />
-          </Grid>
-          
-          {/*<Field name="email" type="email" fullWidth*/}
-          {/*variant="outlined"/>*/}
-          {/*{errors.email && touched.email ? <div>{errors.email}</div> : null}*/}
-          <Button fullWidth variant="contained" color="primary" type="submit">
-            Submit
-          </Button>
-          <Box className={classes.forgotText}>
-          Already have an account? SIGN IN
+          getValue={(vaule) => formik.setFieldValue('password', vaule)}
+          onBlur={() => formik.setFieldTouched('password')}
+        />
+      </Grid>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <InputField
+          id={'Last Name'}
+          name={'Last Name'}
+          type={'Last Name'}
+          label={'Last Name'}
+          placeholder={'Kulendran'}
+          error={Boolean(formik.errors.password) && formik.touched.password}
+          errorMessage={formik.errors.password}
+          value={formik.values.password}
+          fullWidth
+          getValue={(vaule) => formik.setFieldValue('password', vaule)}
+          onBlur={() => formik.setFieldTouched('password')}
+        />
+      </Grid>
+      
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <InputField
+          id={'Organization'}
+          name={'Organization'}
+          type={'Organization'}
+          label={'Organization'}
+          placeholder={'Aatral'}
+          error={Boolean(formik.errors.password) && formik.touched.password}
+          errorMessage={formik.errors.password}
+          value={formik.values.password}
+          fullWidth
+          getValue={(vaule) => formik.setFieldValue('password', vaule)}
+          onBlur={() => formik.setFieldTouched('password')}
+        />
+      </Grid>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <InputField
+          id={'Email'}
+          name={'Email'}
+          type={'Email'}
+          label={'Email'}
+          placeholder={'gobinthiran@huex.studio'}
+          error={Boolean(formik.errors.password) && formik.touched.password}
+          errorMessage={formik.errors.password}
+          value={formik.values.password}
+          fullWidth
+          getValue={(vaule) => formik.setFieldValue('password', vaule)}
+          onBlur={() => formik.setFieldTouched('password')}
+        />
+      </Grid>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <InputField
+          id={'Phone number'}
+          name={'Phone number'}
+          type={'Phone number'}
+          label={'Phone number'}
+          placeholder={'Enter your phone number'}
+          error={Boolean(formik.errors.password) && formik.touched.password}
+          errorMessage={formik.errors.password}
+          value={formik.values.password}
+          fullWidth
+          getValue={(vaule) => formik.setFieldValue('password', vaule)}
+          onBlur={() => formik.setFieldTouched('password')}
+        />
+      </Grid>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <InputField
+          id={'Password'}
+          name={'Password'}
+          type={'Password'}
+          label={'Password'}
+          placeholder={'Enter a password'}
+          error={Boolean(formik.errors.password) && formik.touched.password}
+          errorMessage={formik.errors.password}
+          value={formik.values.password}
+          fullWidth
+          getValue={(vaule) => formik.setFieldValue('password', vaule)}
+          onBlur={() => formik.setFieldTouched('password')}
+        />
+      </Grid>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <Box className={classes.forgotText}>
+          Forgot password? <Link to={'/forgot-password'}>RESET</Link>
         </Box>
-        </Form>
-      )}
-    </Formik>
+      </Grid>
+      <Button fullWidth type={'submit'} variant="contained" color="primary">
+       Submit
+      </Button>
+    </form>
   );
 };
+
 export default SignupForm;

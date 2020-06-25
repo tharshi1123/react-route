@@ -23,11 +23,19 @@ const styles = (theme) => ({
 class Signup extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      initialValues: {
+        
+        email: '',
+        password: '',
+      
+      },
+    };
   }
 
   render() {
     const { classes } = this.props;
+    const { initialValues } = this.state;
 
     return (
       <PublicLayout
