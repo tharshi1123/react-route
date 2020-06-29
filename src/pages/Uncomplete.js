@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PublicLayout from "../components/layouts/publicLayout";
 import Complete from "../assets/images/Complete.png";
 import failed from "../assets/icons/Failed.svg";
-import UncompleteForm from "../components/forms/UncompleteForm";
+import UncompleteForm from "../components/messages/UncompleteForm";
 import {withStyles} from "@material-ui/styles";
 
 const styles = (theme) => ({

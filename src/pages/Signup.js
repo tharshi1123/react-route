@@ -25,11 +25,13 @@ class Signup extends Component {
     super(props);
     this.state = {
       initialValues: {
-        
+        first_name:'',
+        last_name:'',
+        organization:'',
+        phone_number:'',
         email: '',
         password: '',
-      
-      },
+       },
     };
   }
 
@@ -45,7 +47,7 @@ class Signup extends Component {
       >
         <div className={classes.cart}>
 
-          <SignupForm />
+          <SignupForm initialValues={initialValues} />
         </div>
       </PublicLayout>
     )

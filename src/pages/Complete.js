@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PublicLayout from "../components/layouts/publicLayout";
 import Complete from "../assets/images/Complete.png";
 import tick from "../assets/icons/Success.svg";
-import CompleteForm from "../components/forms/CompleteForm";
+import CompleteForm from "../components/messages/CompleteForm";
 import {withStyles} from "@material-ui/styles";
 
 const styles = (theme) => ({

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PublicLayout from "../components/layouts/publicLayout";
 import CompleteImage from "../assets/images/Complete.png";
-import  ProfileForm from "../components/forms/ProfileForm";
-
+import  ProfileForm from "../components/messages/ProfileForm";
 import {withStyles} from "@material-ui/styles";
 
 

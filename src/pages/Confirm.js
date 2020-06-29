@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PublicLayout from "../components/layouts/publicLayout";
 import ConfirmImage from "../assets/images/Confirm.png";
-import  ConfirmForm from "../components/forms/ConfirmForm";
+import  ConfirmForm from "../components/messages/ConfirmForm";
 import {withStyles} from "@material-ui/styles";
 import tick from "../assets/icons/Success.svg";
 

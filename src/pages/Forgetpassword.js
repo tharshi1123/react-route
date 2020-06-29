@@ -23,11 +23,16 @@ const styles = (theme) => ({
 class Forgetpass extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      initialValues: {
+      password: '',
+      },
+    }
   }
 
   render() {
     const { classes } = this.props;
+    const { initialValues } = this.state;
 
     return (
       <PublicLayout
@@ -37,7 +42,7 @@ class Forgetpass extends Component {
       >
         <div className={classes.cart}>
 
-          <ForgetpassForm/>
+          <ForgetpassForm initialValues={initialValues} />
         </div>
       </PublicLayout>
     )
