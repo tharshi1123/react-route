@@ -136,7 +136,7 @@ const SignupForm = (props) => {
         <InputField
           id={'phone_number'}
           name={'phone_number'}
-          type={'string'}
+          type={'number'}
           label={'Phone number'}
           placeholder={'Enter Phone number'}
           error={Boolean(formik.errors.phone_number) && formik.touched.phone_number}
