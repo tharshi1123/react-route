@@ -34,7 +34,7 @@ class Login extends Component {
     };
   }
 
-  addNew=() =>{
+  addNewEmail=() =>{
 const newEmail='tharshi@gmail.com';
 
 this.setState({emailid:[...this.state.emailid,newEmail] });
@@ -54,7 +54,7 @@ this.setState({emailid:[...this.state.emailid,newEmail] });
     <div>
       <ul>{this.state.emailid.map((value,index) => <li key={ index }>{ value }</li>)}
     </ul>
-    <button onClick={ this.addNew }>Submit</button>
+    <button onClick={ this.addNewEmail }>Submit</button>
     </div>
 
       </PublicLayout>
