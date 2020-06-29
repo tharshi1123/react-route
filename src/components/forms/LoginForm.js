@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import Buttons from '../core/Button';
 import InputField from '../core/Input';
 import { useFormik } from 'formik';
-
 import * as Yup from 'yup';
 
 const useStyles = makeStyles((theme) =>
@@ -87,15 +86,10 @@ const LoginForm = (props) => {
           Forgot password? <Link to={'/forgot-password'}>RESET</Link>
         </Box>
       </Grid>
-      <Buttons 
-      id={"Login"}
-      name={"Login"}
-      fullWidth 
-      type={"submit"} 
-      label={"Login"}
-      />
-    
-    </form>
+      <Buttons color='primary'>
+        Sign In
+      </Buttons>
+     </form>
   );
 };
 
