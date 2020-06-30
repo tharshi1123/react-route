@@ -6,6 +6,7 @@ import Confirm from '../pages/Confirm';
 import Profile from '../pages/Profile';
 import Forgetpass from '../pages/Forgetpassword';
 import Test from '../pages/Test';
+import Moment from '../pages/Moment';
 
 
 const publicRoutes = [
@@ -48,6 +49,11 @@ const publicRoutes = [
     {
         path:"/test",
         component:Test,
+        exact:true
+    },
+    {
+        path:"/moment",
+        component:Moment,
         exact:true
     },
 
