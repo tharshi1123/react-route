@@ -36,8 +36,7 @@ class Login extends Component {
 
   addNewEmail=() =>{
 const newEmail='tharshi@gmail.com';
-
-this.setState({emailid:[...this.state.emailid,newEmail] });
+this.setState({emailid:this.state.emailid.concat(newEmail),});
   }
 
   render() {
