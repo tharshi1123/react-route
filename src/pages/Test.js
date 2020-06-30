@@ -4,6 +4,7 @@ import signinImage from '../assets/images/Signin.png';
 import logo from '../assets/logos/Logo.png';
 import LoginForm from '../components/forms/LoginForm';
 import { withStyles } from '@material-ui/styles';
+import Buttons from '../components/core/Button';
 
 const styles = (theme) => ({
   logo: {
@@ -53,7 +54,7 @@ this.setState({emailid:this.state.emailid.concat(newEmail),});
     <div>
       <ul>{this.state.emailid.map((value,index) => <li key={ index }>{ value }</li>)}
     </ul>
-    <button onClick={ this.addNewEmail }>Submit</button>
+    <Buttons color='primary' onClick={ this.addNewEmail }>Submit</Buttons>
     </div>
 
       </PublicLayout>
