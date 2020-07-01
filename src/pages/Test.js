@@ -18,7 +18,6 @@ class UserNameValidate extends Component {
       const Handle =(e)=>{
 
           if (true) {
-            alert('hi')
             this.setState({
                 Input: e.target.value,
                 UserEmails:[...this.state.UserEmails,this.state.username],
