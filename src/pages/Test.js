@@ -47,7 +47,6 @@ class UserNameValidate extends Component {
                  <Buttons color='primary' onClick={Handle} >
                     Sign In
                 </Buttons>
-                 {/* {push(UserEmails,'welcome')} */}
                  {this.state.UserEmails}   
                  {this.state.Input}        
             </div>
