@@ -4,9 +4,9 @@ import { Button } from '@material-ui/core';
 
 const styles = () => ({
   button:{
-      widht:"100px",
-height:'30px',
-},
+      widht:'100px',
+      height:'30px',
+         },
 });
 
 const Buttons = ({
@@ -18,8 +18,8 @@ return (
     <div className={classes.button}>
       <Button
          color='primary'
-         variant="contained"
-         type={'button'}
+         variant='contained'
+         type={'submit'}
         fullWidth
      {...rest}
       />
@@ -28,3 +28,5 @@ return (
 };
 
 export default withStyles(styles)(Buttons);
+
+  
