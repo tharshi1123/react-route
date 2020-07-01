@@ -1,4 +1,3 @@
- 
 import React, { Component } from 'react';
 import Buttons from '../components/core/Button';
 import InputField from '../components/core/Input';
