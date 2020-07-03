@@ -1,12 +1,9 @@
 import React from 'react';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import InputField from '../core/Input';
 import Buttons from "../core/Button";
-
 
 const styles = theme => ({
   container: {
@@ -19,9 +16,6 @@ const styles = theme => ({
   },
 });
 
-
-
-
 function DateAndTimePickers(props) {
   const { classes } = props;
 
@@ -30,19 +24,18 @@ function DateAndTimePickers(props) {
     <form className={classes.formCart}>
     <Grid container item xs={12} sm={12} md={12} lg={12}>
     <InputField
-                id="date-picker-inline"
+      id="date-picker-inline"
       label="Enter date and time"
-        type="datetime-local"
-  placeholder="enter date and time"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
+      type="datetime-local"
+      placeholder="enter date and time"
+      className={classes.textField}
+      InputLabelProps={{
+       shrink: true,
+      }}
+     />
        </Grid>
-            <Buttons color="primary">Count days</Buttons>
-
-    </form>
+    <Buttons color="primary">Count days</Buttons>
+   </form>
   );
 }
 
