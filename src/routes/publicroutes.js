@@ -7,6 +7,8 @@ import Profile from '../pages/Profile';
 import Forgetpass from '../pages/Forgetpassword';
 import Test from '../pages/Test';
 import Moment from '../pages/Moment';
+import ImageCrop from '../pages/ReactImageCrop';
+import CPicker from '../pages/MomentCalendar';
 
 
 const publicRoutes = [
@@ -56,6 +58,17 @@ const publicRoutes = [
         component:Moment,
         exact:true
     },
+    {
+        path:"/imagecrop",
+        component:ImageCrop,
+        exact:true
+    },
+    {
+        path:"/cpicker",
+        component:CPicker,
+        exact:true
+    },
+    
 
 
 ]
