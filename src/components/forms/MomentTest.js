@@ -19,8 +19,7 @@ const styles = theme => ({
 function DateAndTimePickers(props) {
   const { classes } = props;
 
-  
-  return (
+ return (
     <form className={classes.formCart}>
     <Grid container item xs={12} sm={12} md={12} lg={12}>
     <InputField
@@ -33,7 +32,7 @@ function DateAndTimePickers(props) {
        shrink: true,
       }}
      />
-       </Grid>
+     </Grid>
     <Buttons color="primary">Count days</Buttons>
    </form>
   );
