@@ -1,32 +1,40 @@
 import React, { Component } from "react";
-import {isEmpty} from 'lodash'
+import {isEmpty} from 'lodash';
+import moment from 'moment';
 import MomentTest from "../components/forms/MomentTest";
-class UserNameVadidate extends Component {
+
+class Countdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userEmails: [],
     };
   }
-  
-render() {
+  addEmail = (abc) => {
+    this.setState((state) => {
+      return {
+        userEmails: [...state.userEmails, abc.email],
+      };
+    });
+  };
+ 
+ render() {
     const {userEmails} = this.state;
     return (
       <div>
         <MomentTest
           getFormValue={values => this.addEmail(values)}
         />
-        {isEmpty(userEmails) && <h1>emails not found!</h1>}
+        {isEmpty(userEmails) && <h1>Select date and time!</h1>}
         {!isEmpty(userEmails) && userEmails.map((item, index) => {
           return (
             <div>
              {item} - {index} 
-       
-       </div>
+           </div>
           )
         }) }
       </div>
     );
   }
 }
-export default UserNameVadidate;
+export default Countdown;
