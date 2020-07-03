@@ -1,45 +1,49 @@
+import 'date-fns';
 import React from 'react';
-import Grid from "@material-ui/core/Grid";
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import InputField from '../core/Input';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
 import Buttons from "../core/Button";
 
-const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formCart: {
-    maxWidth: "430px",
-    width: "100%",
-  },
-});
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
-function DateAndTimePickers(props) {
-  const { classes } = props;
+export default function MaterialUIPickers() {
+  // The first commit of Material-UI
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
- return (
-    <form className={classes.formCart}>
-    <Grid container item xs={12} sm={12} md={12} lg={12}>
-    <InputField
-      id="date-picker-inline"
-      label="Enter date and time"
-      type="datetime-local"
-      placeholder="enter date and time"
-      className={classes.textField}
-      InputLabelProps={{
-       shrink: true,
-      }}
-     />
-     </Grid>
-    <Buttons color="primary">Count days</Buttons>
-   </form>
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Grid container justify="space-around">
+        <KeyboardDatePicker
+          margin="normal"
+          id="date-picker-dialog"
+          label="Date picker dialog"
+          format="MM/dd/yyyy"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+        <KeyboardTimePicker
+          margin="normal"
+          id="time-picker"
+          label="Time picker"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change time',
+          }}
+        />
+      </Grid>
+      <Buttons color="primary">Count days</Buttons>
+ </MuiPickersUtilsProvider>
   );
 }
-
-DateAndTimePickers.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(DateAndTimePickers);
