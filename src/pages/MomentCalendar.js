@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import moment from 'moment'
 import moment from 'moment';
 import MomentTest from '../components/forms/MomentTest';
 
