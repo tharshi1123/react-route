@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import moment from 'moment';
 import MaterialUIPickers from '../components/forms/MomentTest';
@@ -15,7 +14,7 @@ class momentDate extends Component {
    }
    countRemain(){
    const dateB = moment('2019-11-11');
-const dateC = moment('2019-10-11');
+   const dateC = moment('2019-10-11');
 
 console.log(`Difference is ${dateB.diff(dateC)} milliseconds`);
 console.log(`Difference is ${dateB.diff(dateC, 'days')} day(s)`);
@@ -27,7 +26,7 @@ console.log(`Difference is ${dateB.diff(dateC, 'months')} month(s)`);
 
        return (
            <div>
-     <MaterialUIPickers/>
+         <MaterialUIPickers/>
            </div>
         );
    }
