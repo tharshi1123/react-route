@@ -1,19 +1,17 @@
 
 import React, { Component } from 'react';
 import moment from 'moment';
-import MomentTest from '../components/forms/MomentTest';
 import MaterialUIPickers from '../components/forms/MomentTest';
-import MaterialUIPickers1 from '../components/forms/MomentTest1';
-import Buttons from "../components/core/Button";
 
-import Moment from '../pages/Moment';
-import { Typography } from '@material-ui/core';
   
 class momentDate extends Component {
    constructor(props) {
        super(props);
        this.state = {
         }
+   }
+   componentDidMount(){
+      this.countRemain();
    }
    countRemain(){
    const dateB = moment('2019-11-11');
@@ -29,10 +27,7 @@ console.log(`Difference is ${dateB.diff(dateC, 'months')} month(s)`);
 
        return (
            <div>
-             <Typography>Today date is</Typography>  <Moment></Moment>
      <MaterialUIPickers/>
-     <MaterialUIPickers1 />
-     <Buttons color="primary">Calculate interval</Buttons>
            </div>
         );
    }
