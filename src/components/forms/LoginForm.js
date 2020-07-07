@@ -7,6 +7,7 @@ import Buttons from '../core/Button';
 import InputField from '../core/Input';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import  InputAdornments from '../core/Passwordfield'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -67,19 +68,7 @@ const LoginForm = (props) => {
         />
       </Grid>
       <Grid container item xs={12} sm={12} md={12} lg={12}>
-        <InputField
-          id={'password'}
-          name={'password'}
-          type={'password'}
-          label={'Password'}
-          placeholder={'Enter password'}
-          error={Boolean(formik.errors.password) && formik.touched.password}
-          errorMessage={formik.errors.password}
-          value={formik.values.password}
-          fullWidth
-          getValue={(vaule) => formik.setFieldValue('password', vaule)}
-          onBlur={() => formik.setFieldTouched('password')}
-        />
+      < InputAdornments/>
       </Grid>
       <Grid container item xs={12} sm={12} md={12} lg={12}>
         <Box className={classes.forgotText}>
