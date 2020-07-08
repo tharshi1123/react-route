@@ -1,55 +1,51 @@
-import 'date-fns';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { DateTimePicker } from "@material-ui/pickers";
+import { DateTimePicker } from '@material-ui/pickers';
 import Buttons from '../core/Button';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import moment from 'moment';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
-import { date } from 'yup';
-
-export default function MaterialUIPickers() {
- 
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
-  const [selectedDate2, setSelectedDate2] = React.useState(new Date());
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
-  const handleDateChange2 = (date) => {
-    setSelectedDate2(date);
-  };
-
-  const calculate =() => {
-    console.log(`Difference is ${moment(selectedDate2).diff(moment(selectedDate), 'days')}`
-    );
-  };
-  
-return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justify="space-around">
-       <DateTimePicker
-          label="DateTimePicker"
-          inputVariant="outlined"
-          value={selectedDate}
-          onChange={handleDateChange}
-          format="yyyy/MM/dd HH:mm"
-         />
-         <DateTimePicker
-          label="DateTimePicker"
-          inputVariant="outlined"
-          value={selectedDate2}
-          onChange={handleDateChange2}
-          format="yyyy/MM/dd HH:mm"
-         /> 
-       <Buttons color="primary" onClick={calculate}>Calculate interval</Buttons>
-      </Grid>
-    </MuiPickersUtilsProvider>
+export default function MaterialUIPickers(props) {
+  const formik = useFormik({
+    initialValues: {
+      date1: props.initialValues.date1,
+      date2: props.initialValues.date2,
+    },
+    validationSchema: Yup.object({}),
+    onSubmit: (values) => {
+      if(props.getFormValue){
+        props.getFormValue(values)
+      }
+    },
+  });
+  return (
+    <form onSubmit={formik.handleSubmit} >
+      <MuiPickersUtilsProvider utils={MomentUtils}>
+        <Grid container justify="space-around">
+          <DateTimePicker
+            label="DateTimePicker"
+            inputVariant="outlined"
+            value={formik.values.date1}
+            onChange={value => formik.setFieldValue('date1', value)}
+            format="DD/MM/YYYY HH:mm"
+          />
+          <DateTimePicker
+            label="DateTimePicker"
+            inputVariant="outlined"
+            value={formik.values.date2}
+            onChange={value => formik.setFieldValue('date2', value)}
+            format="DD/MM/YYYY HH:mm"
+          />
+          {/* <p> {this.calculate.initialValues.sampleDate} </p> */}
+          <Buttons color="primary" type='submit'>
+            Calculate interval
+          </Buttons>
+          {/* <p> {this.formik.initialValues.date1} </p> */}
+        </Grid>
+      </MuiPickersUtilsProvider>
+    </form>
   );
 }
