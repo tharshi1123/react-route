@@ -3,12 +3,10 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import Buttons from '../core/Button';
 import InputField from '../core/Input';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import  InputAdornments from '../core/Passwordfield'
-
+import Button from '../core/Button';
 const useStyles = makeStyles((theme) =>
   createStyles({
     forgotText: {
@@ -28,6 +26,12 @@ const useStyles = makeStyles((theme) =>
     formCart: {
       maxWidth: '430px',
       width: '100%',
+      [theme.breakpoints.down('sm')]: {
+        maxWidth: '100%',
+        '& > :nth-child(n+1)': {
+          padding: '0 16px',
+        },
+      },
     },
   })
 );
@@ -47,7 +51,7 @@ const LoginForm = (props) => {
         .required('Required'),
     }),
     onSubmit: (values) => {
-      console.log(values)
+      console.log(values);
     },
   });
 
@@ -68,17 +72,31 @@ const LoginForm = (props) => {
         />
       </Grid>
       <Grid container item xs={12} sm={12} md={12} lg={12}>
-      < InputAdornments/>
+        <InputField
+          id={'password'}
+          name={'password'}
+          type={'password'}
+          label={'Password'}
+          placeholder={'Enter password'}
+          error={Boolean(formik.errors.password) && formik.touched.password}
+          errorMessage={formik.errors.password}
+          value={formik.values.password}
+          fullWidth
+          getValue={(vaule) => formik.setFieldValue('password', vaule)}
+          onBlur={() => formik.setFieldTouched('password')}
+        />
+      </Grid>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <Button type={'submit'} color={'primary'}>
+          Login
+        </Button>
       </Grid>
       <Grid container item xs={12} sm={12} md={12} lg={12}>
         <Box className={classes.forgotText}>
           Forgot password? <Link to={'/forgot-password'}>RESET</Link>
         </Box>
       </Grid>
-      <Buttons color='primary'>
-        Sign In
-      </Buttons>
-     </form>
+    </form>
   );
 };
 
