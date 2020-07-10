@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import { Button as Buttons } from '@material-ui/core';
 
 const styles = () => ({
   button:{
       widht:'100px',
       height:'30px',
          },
+         text: {
+          color: '#FFFFFF',
+        },
 });
 
-const Buttons = ({
+const Button = ({
   classes,
   ...rest
 })  => {
 
 return (
-    <div className={classes.button}>
-      <Button
-         color='primary'
-         variant='contained'
-         type={'submit'}
-        fullWidth
-     {...rest}
-      />
-    </div>
+      <Buttons
+      classes={{
+        label: classes.text,
+      }}
+      variant="contained"
+      fullWidth
+      {...rest}
+/>
   );
 };
 
 export default withStyles(styles)(Buttons);
-
-  
