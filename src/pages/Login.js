@@ -5,7 +5,8 @@ import logo from '../assets/logos/Logo.png';
 import LoginForm from '../components/forms/LoginForm';
 import { withStyles } from '@material-ui/styles';
 
-const styles = (theme) => ({
+
+const styles = () => ({
   logo: {
     width: '159px',
     height: '38px',
@@ -13,7 +14,6 @@ const styles = (theme) => ({
     marginBottom: '50px',
   },
   cart: {
-    maxWidth: '430px',
     width: '100%',
     alignItems: 'center',
     display: 'flex',
@@ -28,7 +28,6 @@ class Login extends Component {
       initialValues: {
         email: '',
         password: '',
-      
       },
     };
   }
